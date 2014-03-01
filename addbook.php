@@ -10,10 +10,11 @@
 
   <body>
     <?php
-      include_once("books_controller.php");
+      
       if (isset($_POST['booktitle']) && isset($_POST['bookauthor'])) {
+        include_once("books_controller.php");
         $bookCon = new Books();
-        $bookCon->saveBook($_POST['booktitle'],$_POST['bookauthor'],$_POST['bookprice']);
+        $bookCon->saveBook($_POST['booktitle'],$_POST['bookauthor'],$_POST['bookprice'],$_POST['bookisbn']);
         $bookAdded = true;
       }
     ?>
@@ -52,6 +53,9 @@
           <div><input type="text" name="booktitle" id="booktitle" value="" class="span3" placeholder="Book Title" required/></div>
           <div><input type="text" name="bookauthor" id="bookauthor" value="" class="span3" placeholder="Book Author" required/></div>
           <div><input type="text" name="bookprice" id="bookprice" value="" class="span3" placeholder="Book Price"/></div>
+          <div><input type="text" name="bookisbn" id="bookisbn" value="" 
+            class="span3" placeholder="ISBN"/></div>
+
           <div><input type="submit"></div>
           
         </form> 
